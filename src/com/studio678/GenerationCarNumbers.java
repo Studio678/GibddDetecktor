@@ -1,6 +1,6 @@
-/**
- *    This class will generate ArrayList<String> of carNumbers
- *    author studio678 17.05.2019
+/*
+     This class will generate ArrayList<String> of carNumbers
+     author studio678 17.05.2019
  */
 
 package com.studio678;
@@ -11,17 +11,17 @@ import java.util.regex.Pattern;
 
 import static java.lang.Math.pow;
 
-public class GenerationCarNumbers {
+class GenerationCarNumbers {
 
-    public static ArrayList<String> generationCarNumbers() {
+    static ArrayList<String> generationCarNumbers() {
         //get region codes ArrayList<> it will get 124 items in String type
         ArrayList<String> regions = extractRegions(REGIONS_TEXT);
         ArrayList<String> carMainDigits = generateCarMainDigits();
         ArrayList<String> carNumbers = new ArrayList<>();
-        for (int i = 0; i < carMainDigits.size(); i++) {
-            for(int k = 0; k < COOL_LETTERS.length; k++){
-                for(int j = 0;j < regions.size();j++) {
-                    String str = COOL_LETTERS[k].substring(0,1) + carMainDigits.get(i) + COOL_LETTERS[k].substring(1,3) + regions.get(j);
+        for (String carMainDigit : carMainDigits) {
+            for (String coolLetter : COOL_LETTERS) {
+                for (String region : regions) {
+                    String str = coolLetter.substring(0, 1) + carMainDigit + coolLetter.substring(1, 3) + region;
                     carNumbers.add(str);
                 }
             }
